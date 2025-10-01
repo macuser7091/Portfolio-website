@@ -1,0 +1,81 @@
+Create a complete, single-page portfolio website for a DevOps and Cloud Engineer. The website should be built using only HTML, CSS, and vanilla JavaScript. No external frameworks like Bootstrap or Tailwind are needed.
+
+The core design theme is "Ancient/Classical". It should look elegant and professional, evoking the feel of old scrolls, stone tablets, and classic architecture.
+
+**File Structure:**
+- `index.html`
+- `style.css`
+- `script.js`
+
+**Detailed Instructions:**
+
+**1. General Style (`style.css`):**
+   - **Fonts:** Import and use two Google Fonts:
+     - 'Cinzel' for all headings (h1, h2, h3).
+     - 'Lora' for all body text (p, li, etc.).
+   - **Color Palette:**
+     - Page Background: `#f5f1e8` (a soft, papyrus-like white).
+     - Text Color: `#3a3a3a` (dark charcoal, not pure black).
+     - Primary/Accent Color: `#c89c5b` (an antique gold for headings, links, and borders).
+     - Stone/Card Background: `#e0dace` (a light stone color).
+   - **Background Texture:** Apply a subtle, seamless parchment texture to the `body` background. You can use a placeholder URL for now if needed.
+   - **Responsiveness:** The website must be fully responsive for desktop, tablet, and mobile devices. Use CSS Flexbox or Grid for layouts.
+   - **Overall Feel:** All elements should have a clean, spacious layout. Avoid sharp corners; use a slight `border-radius` on card elements.
+
+**2. HTML Structure (`index.html`):**
+
+Create the following sections in order, using semantic HTML5 tags (`<header>`, `<nav>`, `<section>`, `<footer>`):
+
+   - **Header & Navbar:**
+     - A simple, sticky navbar at the top.
+     - Include the name (e.g., "Your Name") on the left.
+     - Navigation links on the right: "About", "Skills", "Projects", "Experience", "Contact".
+     - The links should scroll smoothly to the corresponding sections using JavaScript.
+
+   - **Hero Section (`<section id="hero">`):**
+     - Full-screen section.
+     - A large main heading (H1) with the text: "Architect of Digital Realms".
+     - A sub-heading (H2) below it: "DevOps & Cloud Engineer".
+
+   - **About Section (`<section id="about">`):**
+     - A heading (H2): "The Chronicle".
+     - A two-column layout. Left column for a short bio/paragraph (use placeholder text). Right column for a circular placeholder image.
+
+   - **Skills Section (`<section id="skills">`):**
+     - A heading (H2): "The Armory".
+     - Use a CSS Grid to display skills in card-like elements.
+     - Each card should have a light stone background color (`#e0dace`) and a gold border.
+     - Create cards for skills like: AWS, Azure, GCP, Terraform, Ansible, Docker, Kubernetes, Jenkins, GitHub Actions, Python, and Bash.
+
+   - **Projects Section (`<section id="projects">`):**
+     - A heading (H2): "Great Constructions".
+     - Use a CSS Grid to display 2-3 project cards.
+     - Each project card should contain:
+       - Project Title (H3).
+       - A short description paragraph.
+       - A list of technologies used.
+       - Two buttons: "View Blueprint" (for GitHub) and "See Live" (for a demo link). Style the buttons with the gold accent color.
+
+   - **Experience Section (`<section id="experience">`):**
+     - A heading (H2): "The Scroll of Experience".
+     - Design this as a vertical timeline.
+     - Each point on the timeline should represent a job role with:
+       - Job Title & Company Name.
+       - Dates (e.g., "2022 - Present").
+       - A short list of responsibilities.
+     - Use CSS to create the central timeline line and the circular points.
+
+   - **Contact Section (`<section id="contact">`):**
+     - A heading (H2): "Send a Messenger".
+     - A simple contact form with fields for "Name", "Email", and "Message".
+     - A submit button with the text "Send Message".
+     - Below the form, include icons (placeholder icons are fine) for LinkedIn and GitHub.
+
+   - **Footer (`<footer>`):**
+     - A simple, clean footer with "© [Current Year] Your Name. Crafted with code."
+
+**3. JavaScript Functionality (`script.js`):**
+   - Implement smooth scrolling for the navigation links. When a link in the navbar is clicked, the page should smoothly scroll to the corresponding section.
+   - (Optional) Add a subtle fade-in effect for sections as the user scrolls down the page.
+
+Please generate the code for all three files (`index.html`, `style.css`, `script.js`) based on these detailed instructions. Add comments in the code where necessary to explain the structure.
