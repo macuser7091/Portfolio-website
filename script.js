@@ -1,5 +1,8 @@
 // Smooth Scrolling for Navigation Links
 document.addEventListener('DOMContentLoaded', function() {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
     // Get all navigation links
     const navLinks = document.querySelectorAll('.nav-links a');
     
@@ -12,10 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             
-            // Smooth scroll to the section
+            // Smooth scroll to the section (respect reduced motion preference)
             if (targetSection) {
                 targetSection.scrollIntoView({
-                    behavior: 'smooth',
+                    behavior: prefersReducedMotion ? 'auto' : 'smooth',
                     block: 'start'
                 });
             }
@@ -25,24 +28,32 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fade-in Animation on Scroll
     const sections = document.querySelectorAll('section');
     
-    // Intersection Observer for fade-in effect
-    const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+    // Only apply fade-in animations if user hasn't requested reduced motion
+    if (!prefersReducedMotion) {
+        // Intersection Observer for fade-in effect
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        sections.forEach(section => {
+            observer.observe(section);
         });
-    }, observerOptions);
-    
-    // Observe all sections
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+    } else {
+        // If reduced motion is preferred, make all sections visible immediately
+        sections.forEach(section => {
+            section.classList.add('visible');
+        });
+    }
 
     // Set current year in footer
     const currentYearElement = document.getElementById('current-year');
