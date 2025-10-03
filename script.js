@@ -1,3 +1,4 @@
+
 // Smooth Scrolling for Navigation Links
 document.addEventListener('DOMContentLoaded', function() {
     // Check for reduced motion preference
@@ -61,21 +62,34 @@ document.addEventListener('DOMContentLoaded', function() {
         currentYearElement.textContent = new Date().getFullYear();
     }
 
-    // Contact Form Submission Handler
-    const contactForm = document.querySelector('.contact-form');
+    // Contact Form Submission Handler & EmailJS Integration
+    const contactForm = document.getElementById('contact-form');
     if (contactForm) {
+        // Initialize EmailJS with your User ID
+        emailjs.init('6DqdP_rmQ1_zBqKaH'); // <-- Replace with your actual User ID
+
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             // Get form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
-            
+
             // Simple validation
             if (name && email && message) {
-                alert('Thank you for your message! I will get back to you soon.');
-                contactForm.reset();
+                // Send email
+                emailjs.send('service_lkq18eo', 'template_m3f98hb', {
+                    name: name,
+                    email: email,
+                    message: message
+                })
+                .then(function(response) {
+                    alert('Message sent successfully!');
+                    contactForm.reset();
+                }, function(error) {
+                    alert('Failed to send message. Please try again.');
+                });
             } else {
                 alert('Please fill in all fields.');
             }

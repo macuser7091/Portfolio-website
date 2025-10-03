@@ -171,6 +171,11 @@ section.visible {
     border: 3px solid var(--accent-color);
 }
 
+.image-placeholder img {
+    width: 244px;
+    border-radius: 50%;
+}
+
 /* Skills Section */
 .skills-grid {
     display: grid;
